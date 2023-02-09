@@ -9,10 +9,26 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="getTestRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
     <xs:element name="getCountryResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="country" type="tns:country"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getTestResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="test" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
