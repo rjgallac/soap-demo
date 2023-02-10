@@ -1,7 +1,8 @@
 package com.example.consumer.config;
 
-import com.example.consumer.controller.CountryClient;
-import com.example.consumer.controller.TestClient;
+import com.example.consumer.clients.CountryClient;
+import com.example.consumer.clients.MyObjectClient;
+import com.example.consumer.clients.TestClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
@@ -30,6 +31,16 @@ public class CountryConfiguration {
     @Bean
     public TestClient testClient(Jaxb2Marshaller marshaller) {
         TestClient client = new TestClient();
+        client.setDefaultUri("http://localhost:8080/ws");
+        client.setMarshaller(marshaller);
+        client.setUnmarshaller(marshaller);
+        return client;
+    }
+
+
+    @Bean
+    public MyObjectClient myObjectClient(Jaxb2Marshaller marshaller) {
+        MyObjectClient client = new MyObjectClient();
         client.setDefaultUri("http://localhost:8080/ws");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);

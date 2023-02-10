@@ -1,15 +1,9 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://soapservice.example.com/models"
            targetNamespace="http://soapservice.example.com/models" elementFormDefault="qualified">
 
-    <xs:element name="getCountryRequest">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="name" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+    <!-- COUNTRY  -->
 
-    <xs:element name="getTestRequest">
+    <xs:element name="getCountryRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="name" type="xs:string"/>
@@ -25,13 +19,6 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="getTestResponse">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="test" type="xs:string"/>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
 
     <xs:complexType name="country">
         <xs:sequence>
@@ -49,4 +36,73 @@
             <xs:enumeration value="PLN"/>
         </xs:restriction>
     </xs:simpleType>
+
+    <!-- TEST -->
+
+    <xs:element name="getTestRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getTestResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="test" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <!-- MyObjects  -->
+
+    <xs:element name="getObjectRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="tns:myObject"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="myObject">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="time" type="xs:int"/>
+            <xs:element name="myobject2" type="tns:myObject2" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="myObject2">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="time" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="getObjectResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="tns:myResponseObject"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="myResponseObject">
+        <xs:sequence>
+            <xs:element name="newName" type="xs:string"/>
+            <xs:element name="newTime" type="xs:int"/>
+            <xs:element name="myResponseObjectSub" type="tns:myResponseObjectSub" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="myResponseObjectSub">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="time" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
 </xs:schema>

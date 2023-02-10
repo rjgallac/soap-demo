@@ -1,10 +1,9 @@
-package com.example.consumer.controller;
+package com.example.consumer.clients;
 
 import com.example.consumer.wsdl.GetCountryRequest;
 import com.example.consumer.wsdl.GetCountryResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 public class CountryClient extends WebServiceGatewaySupport {
